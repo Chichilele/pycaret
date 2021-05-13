@@ -4280,7 +4280,7 @@ def tune_model_supervised(
                 enable_pruning=early_stopping
                 and can_early_stop(pipeline_with_model, True, False, False, param_grid),
                 max_iter=early_stopping_max_iters,
-                n_jobs=n_jobs,
+                n_jobs=1, ## to have reproducible results see: https://github.com/optuna/optuna/issues/2540
                 n_trials=n_iter,
                 random_state=seed,
                 scoring=optimize,
